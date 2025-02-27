@@ -1,0 +1,140 @@
+{
+	"geode": "4.2.0",
+	"gd": {
+		"win": "2.2074",
+		"mac": "2.2074"
+	},
+	"id": "razoom.no_useless_editor_buttons",
+	"name": "No Useless Editor Buttons",
+	"version": "v1.0.0",
+	"developer": "RaZooM",
+	"description": "Remove editor buttons that you don't need",
+
+	"tags": ["editor", "customization", "interface"],
+	"links": {
+		"source": "https://github.com/RazoomGD/geode-no-useless-editor-buttons",
+		"community": "https://discord.gg/wcWvtKHP8n"
+	},
+
+	"dependencies": {
+		"geode.node-ids": {
+			"importance": "required",
+			"version": ">=1.17.0"
+		}
+	},
+	
+	"settings": {
+		"enable": {
+			"name": "Enable",
+			"type": "bool",
+			"description": "Enable the mod",
+			"default": true
+		},
+		"t1": {
+			"name": "Buttons",
+			"type": "title"
+		},
+		"no-zoom": {
+			"name": "No Zoom buttons",
+			"type": "bool",
+			"default": true,
+			"description": "<cg>Shortcuts:</c>\nScroll wheel"
+		},
+		"no-link": {
+			"name": "No Link buttons",
+			"type": "bool",
+			"default": false,
+			"description": "<cg>Shortcuts:</c>\n(no default)"
+		},
+		"no-undo-redo": {
+			"name": "No Undo-Redo buttons",
+			"type": "bool",
+			"default": true,
+			"description": "<cg>Shortcuts:</c>\nCtrl+Z - undo , \nCtrl+Y/Ctrl+Shift+Z - redo"
+		},
+		"no-trashcan": {
+			"name": "No Trashcan button",
+			"type": "bool",
+			"default": false,
+			"description": "<cg>Shortcuts:</c>\nDelete"
+		},
+		"no-pause": {
+			"name": "No Pause button",
+			"type": "bool",
+			"default": false,
+			"description": "<cg>Shortcuts:</c>\nEscape"
+		},
+		"no-copy": {
+			"name": "No Copy button",
+			"type": "bool",
+			"default": false,
+			"description": "<cg>Shortcuts:</c>\nCtrl+C"
+		},
+		"no-paste": {
+			"name": "No Paste button",
+			"type": "bool",
+			"default": false,
+			"description": "<cg>Shortcuts:</c>\nCtrl+V"
+		},
+		"no-copy-paste": {
+			"name": "No Copy+Paste button",
+			"type": "bool",
+			"default": false,
+			"description": "<cg>Shortcuts:</c>\nCtrl+D"
+		},
+		"no-edit-special": {
+			"name": "No Edit Special button",
+			"type": "bool",
+			"default": false,
+			"description": "<cg>Shortcuts:</c>\n(no default)"
+		},
+		"no-edit-group": {
+			"name": "No Edit Group button",
+			"type": "bool",
+			"default": false,
+			"description": "<cg>Shortcuts:</c>\n(no default)"
+		},
+		"no-edit-object": {
+			"name": "No Edit Object button",
+			"type": "bool",
+			"default": false,
+			"description": "<cg>Shortcuts:</c>\n(no default)"
+		},
+		"no-copy-values": {
+			"name": "No Copy Values button",
+			"type": "bool",
+			"default": false,
+			"description": "<cg>Shortcuts:</c>\n(no default)"
+		},
+		"no-paste-state": {
+			"name": "No Paste State button",
+			"type": "bool",
+			"default": false,
+			"description": "<cg>Shortcuts:</c>\n(no default)"
+		},
+		"no-paste-color": {
+			"name": "No Paste Color button",
+			"type": "bool",
+			"default": false,
+			"description": "<cg>Shortcuts:</c>\n(no default)"
+		},
+		"no-adjust-hsv": {
+			"name": "No Adjust HSV button",
+			"type": "bool",
+			"default": false,
+			"description": "<cg>Shortcuts:</c>\n(no default)"
+		},
+		"no-goto-layer": {
+			"name": "No GoTo Layer button",
+			"type": "bool",
+			"default": false,
+			"description": "<cg>Shortcuts:</c>\n(no default)"
+		},
+		"no-deselect": {
+			"name": "No Deselect button",
+			"type": "bool",
+			"default": false,
+			"description": "<cg>Shortcuts:</c>\nAlt+D"
+		}
+	}
+}
