@@ -26,29 +26,30 @@ class $modify(EditorUI) {
 
 
     // combination of geode CCNode::swapChildIndices and CCNode::insertAfter
-    void moveChildToTheEnd(CCNode* parent, CCNode* child) {
-        auto lastChild = static_cast<CCNode*>(parent->getChildren()->lastObject());
-        child->setZOrder(lastChild->getZOrder());
-        child->setOrderOfArrival(lastChild->getOrderOfArrival() + 1);
-        parent->m_pChildren->removeObject(child);
-        parent->m_pChildren->addObject(child); // add to the end
-    }
+    // void moveChildToTheEnd(CCNode* parent, CCNode* child) {
+    //     auto lastChild = static_cast<CCNode*>(parent->getChildren()->lastObject());
+    //     child->setZOrder(lastChild->getZOrder());
+    //     child->setOrderOfArrival(lastChild->getOrderOfArrival() + 1);
+    //     parent->m_pChildren->removeObject(child);
+    //     parent->m_pChildren->addObject(child); // add to the end
+    // }
 
 
-    void moveChildToTheStart(CCNode* parent, CCNode* child) {
-        auto firstChild = static_cast<CCNode*>(parent->getChildren()->firstObject());
-        child->setZOrder(firstChild->getZOrder());
-        child->setOrderOfArrival(firstChild->getOrderOfArrival() - 1);
-        parent->m_pChildren->removeObject(child);
-        parent->m_pChildren->insertObject(child, 0); // add first
-    }
+    // void moveChildToTheStart(CCNode* parent, CCNode* child) {
+    //     auto firstChild = static_cast<CCNode*>(parent->getChildren()->firstObject());
+    //     child->setZOrder(firstChild->getZOrder());
+    //     child->setOrderOfArrival(firstChild->getOrderOfArrival() - 1);
+    //     parent->m_pChildren->removeObject(child);
+    //     parent->m_pChildren->insertObject(child, 0); // add first
+    // }
 
 
-    void handleMenuChild(CCNode* menu, const char* childId, bool invertedMenu=false) {
+    void handleMenuChild(CCNode* menu, const char* childId) {
+        if (auto lo = menu->getLayout()) {
+            lo->ignoreInvisibleChildren(true);
+        }
         if (auto btn = menu->getChildByID(childId)) {
             m_fields->affectedButtons->addObject(btn);
-            if (!invertedMenu) moveChildToTheEnd(menu, btn);
-            else moveChildToTheStart(menu, btn);
             btn->setVisible(false);
         } else {
             log::error("child {} not found", childId);
@@ -63,8 +64,7 @@ class $modify(EditorUI) {
 
         if (!setting("enable")) return true;
 
-        // Since we shouldn't delete RobTop's nodes, we'll just make them invisible and 
-        // move them to the end of the menu child list so that they don't affect layouts
+        // Since we shouldn't delete RobTop's nodes, we'll just make them invisible
 
         if (setting("no-zoom")) {
             auto menu = getChildByID("zoom-menu");
@@ -81,8 +81,8 @@ class $modify(EditorUI) {
 
         if (setting("no-link")) {
             if (auto menu = getChildByID("link-menu")) {
-                handleMenuChild(menu, "link-button", true);
-                handleMenuChild(menu, "unlink-button", true);
+                handleMenuChild(menu, "link-button");
+                handleMenuChild(menu, "unlink-button");
                 menu->updateLayout();
             }
         }
@@ -114,6 +114,7 @@ class $modify(EditorUI) {
             handleMenuChild(menu, "pause-button");
             menu->updateLayout();
         }
+
 
         auto bigMenu = getChildByID("editor-buttons-menu");
 
